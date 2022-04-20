@@ -1,0 +1,94 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  Home   </title>
+    @RenderSection("popupCss",false)
+</head>
+<body>
+    <!--Header-->
+    <div class="wrapper">
+        <header>
+            <a href="/LoginUser/Index" title="Login" id="DN">Login</a>
+            <div class="inner-header">
+                <a href="TrangChu.html" id="logo">Code-K</a>
+                <nav>
+                    <ul id="main-menu">
+                        <li class="active"><a href="/Home/Index/" title="Home">Home</a></li>
+                        <li><a href="#" title="Learn">Learn</a></li>
+                        <li><a href="Game.html" title="Game">Game</a></li>
+                        <li><a href="Share.html" title="Share">Share</a></li>
+                        <!--<li id="DN"><a href="DangNhap.html" title="Đăng nhập">Đăng nhập</a></li>-->
+                    </ul>
+                </nav>
+
+            </div>
+        </header>
+    </div>
+
+
+
+    <!--Banner-->
+
+    
+
+    <!--Content-->
+    <div class="content">
+        @RenderBody()  
+    </div>
+
+
+
+
+
+    <!--Footer-->
+    <footer class="main-footer">
+        <div class="code-k">
+            <h3>Code-K</h3>
+            <p>
+                Code-K is an online platform that helps users
+                to learn, practice<br> coding skills and join
+                the online coding contests.
+            </p>
+            <a href=""><img src="~/Assets/icon/facebook.png" alt=""></a>
+        </div>
+
+        <div class="link">
+            <h3>Links</h3>
+            <ul>
+                <li><a href="TrangChu.html">Home Page</a></li>
+                <li><a href="HocTap.html">Learn</a></li>
+                <li><a href="Game.html">Game</a></li>
+                <li><a href="Share.html">Share</a></li>
+            </ul>
+        </div>
+
+        <div class="information">
+            <h3>Information</h3>
+            <ul>
+                <li><a href="">About Us</a></li>
+                <li><a href="Terms.html">Terms of Use</a></li>
+            </ul>
+        </div>
+
+        <div class="help">
+            <h3>Help</h3>
+            <ul>
+                <li><a href="">Help</a></li>
+                <li><a href="">Discussion</a></li>
+                <li><a href="Contact.html">Contact us</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="~/Assets/user/js/TrangChu.js"></script>
+    
+    @RenderSection("popupJs",false)
+</body>
+</html>

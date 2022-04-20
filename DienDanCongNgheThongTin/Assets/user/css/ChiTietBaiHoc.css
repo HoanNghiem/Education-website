@@ -1,0 +1,20 @@
+﻿body {
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+.content{
+    margin-top:90px;
+    margin-bottom:30px;
+    align-content:center;
+    background-color:#fff;
+    border-radius:18px;
+    text-align:center;
+    align-items:center
+}
+.mota{
+    width:369px;
+    margin:9px auto;
+    font-size:18px;
+}

@@ -1,0 +1,104 @@
+﻿@model DienDanCongNgheThongTin.Models.framework.ChuyenMuc
+@{
+    ViewBag.Title = "ChuyenMuc";
+    Layout = "~/Views/Shared/_layoutUserAcc.cshtml";
+}
+
+@using DienDanCongNgheThongTin.Models.framework;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layoutUserAcc.cshtml";
+    WebITEntities1 db = new WebITEntities1();
+    List<ChuyenMuc> chuyenmuc = db.ChuyenMuc.ToList();
+    List<TinTuc> tintuc = db.TinTuc.ToList();
+
+}
+@section styles{
+    <link rel="stylesheet" type="text/css" href="~/Assets/user/css/TrangChuAc.css" />
+}
+<!--Banner-->
+<div class="banner">
+    <!--<img src="~/Assets/Images/bn3.JPG">-->
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="~/Assets/Images/banner0.png" style="width:100%">
+            <div class="text">Caption Text</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="~/Assets/Images/banner.jpg" style="width:100%">
+            <div class="text">Caption Two</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="~/Assets/Images/banner1.png" style="width:100%">
+            <div class="text">Caption Three</div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+</div>
+
+<div class="content">
+    <!--left-->
+    <div class="left">
+        <ul>
+            @if (Model == null)
+            {
+                <li><h1>Chuyên mục chưa được cập nhật!</h1></li>
+                @*@Model.MaChuyenMuc*@
+            }
+            else
+            {
+                foreach (var item in tintuc)
+                {
+                    if (item.MaChuyenMuc == Model.MaChuyenMuc)
+                    {
+                        <li>
+                            <a href="">
+                                <img src="@item.imgUrl">
+                                <h2>
+                                    @item.TieuDe
+                                </h2>
+                            </a>
+                            @item.MoTa
+                        </li>                           
+                    }
+                    @*else
+                    {
+                        <li><h1>Chưa có bài viết nào thuộc chuyên mục này!</h1></li>
+                    }*@
+                }
+            }
+
+        </ul>
+    </div>
+
+    <!--right-->
+    <div class="right">
+        <div class="menu-right">
+            <h3>Chuyên mục</h3>
+            <ul>
+                @foreach (var items in chuyenmuc)
+                {
+                    <li><a href="/HomeAcc/ChuyenMuc?id=@items.MaChuyenMuc">@items.TenChuyenMuc</a></li>
+                }
+
+            </ul>
+        </div>
+    </div>
+</div>

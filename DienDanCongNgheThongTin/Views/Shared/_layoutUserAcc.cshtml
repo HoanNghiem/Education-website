@@ -1,0 +1,124 @@
+﻿@using DienDanCongNgheThongTin.Models.framework
+@{
+    Layout = null;
+    WebITEntities1 db = new WebITEntities1();
+    List<TopBarMenu> menu = db.TopBarMenu.ToList();
+    List<FooterLink> lk = db.FooterLink.ToList();
+    List<FooterHelp> hp = db.FooterHelp.ToList();
+    List<FooterInfo> Info = db.FooterInfo.ToList();
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  Home   </title>
+    <link rel="stylesheet" type="text/css" href="~/Assets/user/css/layoutAcc.css" />
+    @RenderSection("styles",false)
+</head>
+<body>
+    <!--Header-->
+    <div class="wrapper">
+        <header>
+            <div href="" title="Acc" id="DN">
+                <img class="acc" src="~/Assets/Icon/accuser.png" alt="">
+                <ul class="menu-acc">
+                    <li>
+                        <a href="/LoginUser/Index/Logout/" id="Logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="inner-header">
+                <a href="TrangChuAcc.html" id="logo">Code-K</a>
+                <nav>
+                    <ul id="main-menu">
+                        @foreach (var item in menu)
+                        {
+                            <li><a href="@item.Link" title="Learn">@item.TenMenu</a></li>
+                        }
+                        @*<li class="active"><a href="/HomeAcc/Index/" title="Home">Home</a></li>
+                        <li><a href="/BaiHoc/Index/" title="Learn">Learn</a></li>
+                        <li><a href="GameAcc.html" title="Game">Game</a></li>
+                        <li><a href="ShareAcc.html" title="Share">Share</a></li>*@
+                    </ul>
+                </nav>
+
+            </div>
+        </header>
+    </div>
+
+
+
+
+    
+
+
+
+
+    <!--Content-->
+    <div class="content">
+        @RenderBody()
+    </div>
+
+
+
+
+
+    <!--Footer-->
+    <footer class="main-footer">
+        <div class="code-k">
+            <h3>Code-K</h3>
+            <p>
+                Code-K is an online platform that helps users
+                to learn, practice<br> coding skills and join
+                the online coding contests.
+            </p>
+            <a href=""><img src="~/Assets/Icon/facebook.png" alt=""></a>
+        </div>
+
+        <div class="link">
+            <h3>Links</h3>
+            <ul>
+                @foreach (var item in lk)
+                {
+                    <li><a href="@item.Link">@item.TenLink</a></li>
+                }
+                @*<li><a href="TrangChuAcc.html">Home Page</a></li>
+                <li><a href="HocTapAcc.html">Learn</a></li>
+                <li><a href="GameAcc.html">Game</a></li>
+                <li><a href="ShareAcc.html">Share</a></li>*@
+            </ul>
+        </div>
+
+        <div class="information">
+            <h3>Information</h3>
+            <ul>
+                @foreach (var item in Info)
+                {
+                    <li><a href="@item.Link">@item.TenInfo</a></li>
+                }
+                @*<li><a href="">About Us</a></li>
+        <li><a href="Terms.html">Terms of Use</a></li>*@
+            </ul>
+        </div>
+
+        <div class="help">
+            <h3>Help</h3>
+            <ul>
+                @foreach (var item in hp)
+                {
+                    <li><a href="@item.Link">@item.TenHelp</a></li>
+                }
+                @*<li><a href="">Help</a></li>
+        <li><a href="">Discussion</a></li>
+        <li><a href="Contact.html">Contact us</a></li>*@
+            </ul>
+        </div>
+    </footer>
+    <script src="~/Assets/user/js/TrangChu.js"></script>
+    @RenderSection("popupJs", false)
+</body>
+</html>

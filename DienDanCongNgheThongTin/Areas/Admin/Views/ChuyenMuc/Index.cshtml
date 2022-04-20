@@ -1,0 +1,34 @@
+﻿@model IEnumerable<DienDanCongNgheThongTin.Models.framework.ChuyenMuc>
+
+@{
+    ViewBag.Title = "Admin - Chuyên Mục";
+    Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
+}
+
+<h2>Chuyên Mục</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenChuyenMuc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenChuyenMuc)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaChuyenMuc }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaChuyenMuc }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaChuyenMuc })
+        </td>
+    </tr>
+}
+
+</table>

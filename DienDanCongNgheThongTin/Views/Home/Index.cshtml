@@ -1,0 +1,86 @@
+﻿@model List<DienDanCongNgheThongTin.Models.framework.TinTuc>
+@using DienDanCongNgheThongTin.Models.framework;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layoutUser.cshtml";
+    WebITEntities1 db = new WebITEntities1();
+    List<ChuyenMuc> chuyenmuc = db.ChuyenMuc.ToList();
+}
+@section popupCss{
+    <link rel="stylesheet" type="text/css" href="~/Assets/user/css/TrangChus.css" />
+}
+
+@*<h2>Home</h2>*@
+<!-- The Modal -->
+<div class="banner">
+    <!--<img src="~/Assets/Images/bn3.JPG">-->
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="~/Assets/Images/banner0.png" style="width:100%">
+            <div class="text">Caption One</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="~/Assets/Images/banner.jpg" style="width:100%">
+            <div class="text">Caption Two</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="~/Assets/Images/banner1.png" style="width:100%">
+            <div class="text">Caption Three</div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+</div>
+
+
+<div class="content">
+
+    <!--left-->
+    <div class="left">
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>
+                    <a href="">
+                        <img src="@item.imgUrl">
+                        <h2>
+                            @item.TieuDe
+                        </h2>
+                    </a>
+                    @item.MoTa
+                </li>
+            }
+
+        </ul>
+    </div>
+
+    <!--right-->
+    <div class="right">
+        <div class="menu-right">
+            <h3>Chuyên mục</h3>
+            <ul>
+                @foreach (var items in chuyenmuc)
+                {
+                    <li><a href="">@items.TenChuyenMuc</a></li>
+                }
+                
+            </ul>
+        </div>
+    </div>
+</div>

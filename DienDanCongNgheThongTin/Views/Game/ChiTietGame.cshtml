@@ -1,0 +1,22 @@
+﻿@model DienDanCongNgheThongTin.Models.framework.Game
+@{
+    ViewBag.Title = "ChiTietGame";
+    Layout = "~/Views/Shared/_layoutUserAcc.cshtml";
+}
+@section styles{
+    <link rel="stylesheet" type="text/css" href="~/Assets/user/css/ChiTietBaiHoc.css" />
+}
+@if (Model == null)
+{
+    <div><h1>Game chưa được cập nhật!</h1></div>
+}
+else
+{
+    <div class="content">
+        <h1>@Model.TenGame</h1>
+        <img src="@Model.imgUrl" />
+        <h2>Bản tóm tắt của @Model.TenGame là!</h2>
+        <div class="mota">@Model.NoiDung</div>
+    </div>
+}
+

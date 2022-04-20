@@ -1,0 +1,173 @@
+﻿@model DienDanCongNgheThongTin.Models.framework.ThanhVien
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_layoutUser.cshtml";
+}
+@section popupCss{
+    <link rel="stylesheet" type="text/css" href="~/Assets/user/css/TrangChus.css">
+    <style>
+        :root {
+            --bg1: rgb(129, 241, 95);
+            --bg2: rgb(79, 89, 216);
+            --text: rgb(27, 171, 214);
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            outline: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 1200px;
+            height: 100vh;
+            background: linear-gradient(to bottom right,var(--bg1),var(--bg2));
+        }
+
+        .form-login h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: yellowgreen;
+        }
+
+        .form-login button {
+            height: 36px;
+            width: 100%;
+            margin-bottom: 6px;
+            background: linear-gradient(to bottom right,var(--bg1),var(--bg2));
+            border: none;
+            border-radius: 3px;
+            color: #fff;
+        }
+
+        .form-login {
+            width: 300px;
+            height: 500px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 40px 30px;
+        }
+
+            .form-login p {
+                text-align: center;
+                display: block;
+            }
+
+        .form-text {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+            .form-text input {
+                width: 286px;
+                height: 36px;
+                border: none;
+                border-bottom: 2px solid #ccc;
+                padding-left: 13px;
+            }
+
+        .form-check {
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+            .form-check .check {
+                position: absolute;
+                margin-top: 3px;
+            }
+
+            .form-check p {
+                display: inline;
+                padding-left: 21px;
+            }
+
+        .form-login .a2 {
+            color: #fff;
+        }
+
+        .form-login .a1 {
+            color: yellowgreen;
+        }
+
+        .form-login .link {
+            margin-top: 21px;
+            padding-left: 136px;
+        }
+
+        .form-login .p1 {
+            margin-top: 11px;
+        }
+
+        .text-danger {
+            color: #e74a3b !important;
+        }
+    </style>
+}
+@section popupJs{
+
+}
+
+<h2>Register</h2>
+
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class=" form-login">
+            <h1>Register</h1>
+            @*<hr />*@
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group form-text">
+                @*@Html.LabelFor(model => model.TaiKhoan, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.TaiKhoan, new { @placeholder = "Tai khoan", htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TaiKhoan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class=" form-text">
+                @*@Html.LabelFor(model => model.MatKhau, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    @Html.PasswordFor(model => model.MatKhau, new { @placeholder = "Mat khau", htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class=" form-text">
+                @* @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Email, new { @placeholder = "Email", htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-check">
+                @*<input class="check" type="checkbox" name="" id="">*@
+                @Html.CheckBox("check")
+                <p>I agree to Code-K <a class="a1" href="/Term/Index/">Tearms of use</a></p>
+                @Html.ValidationMessage("hvjvy", new { @class = "text-danger" })
+            </div>
+
+            <button onclick="signup()" type="submit" class="form-group"> Start coding now! </button>
+            @*<div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    <a class="a2" href="">Start coding now!</a>
+                    </div>
+                </div>*@
+        </div>
+    }
+
+    @*<div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>*@
+</div>

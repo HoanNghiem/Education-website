@@ -1,0 +1,138 @@
+﻿@model DienDanCongNgheThongTin.Models.dtos.userAcc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layoutUser.cshtml";
+}
+@section popupCss{
+    <link rel="stylesheet" type="text/css" href="~/Assets/user/css/TrangChus.css">
+    <style>
+        :root {
+            --bg1: rgb(129, 241, 95);
+            --bg2: rgb(79, 89, 216);
+            --text: rgb(27, 171, 214);
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            outline: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 1200px;
+            height: 100vh;
+            background: linear-gradient(to bottom right,var(--bg1),var(--bg2));
+        }
+
+        .form-login h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: yellowgreen;
+        }
+
+        .form-login button {
+            height: 36px;
+            width: 100%;
+            margin-bottom: 30px;
+            background: linear-gradient(to bottom right,var(--bg1),var(--bg2));
+            border: none;
+            border-radius: 3px;
+            color: #fff;
+        }
+
+        .form-login {
+            width: 300px;
+            height: 500px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 40px 30px;
+        }
+
+            .form-login p {
+                text-align: center;
+                display: block;
+            }
+
+        .form-text {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+            .form-text input {
+                width: 263px;
+                height: 36px;
+                border: none;
+                border-bottom: 2px solid #ccc;
+                padding-left: 36px;
+            }
+
+            .form-text i {
+                position: absolute;
+                font-size: 22px;
+                line-height: 45px;
+            }
+
+        .form-login .a1 {
+            color: #fff;
+        }
+
+        .form-login .a2 {
+            color: yellowgreen;
+        }
+
+        .form-login .link {
+            margin-top: 21px;
+            padding-left: 136px;
+        }
+
+        .form-login .p1 {
+            margin-top: 23px;
+        }
+
+        .form-login .p2 {
+            border-top: 1px solid #ccc;
+            margin-top: 88px;
+            padding-top: 8px;
+        }
+        .text-danger {
+            color: #e74a3b !important;
+        }
+
+    </style>
+}
+    <!-- Modal Content -->
+<div class="container">
+    <div class="form-login">
+        @using (Html.BeginForm())
+        {
+            <h1>Login</h1>
+            @Html.ValidationSummary(true, null, new {@class="text-danger" })
+            <div class="form-text">
+                <i><img src="~/Assets/Icon/user.png"></i>
+                @*<input type="text" placeholder="Username" id="username" onblur="checkUser()">*@
+                @Html.TextBoxFor(n => n.TaiKhoanUs, new { @id = "username", @placeholder = "Tai khoan" })
+                @Html.ValidationMessageFor(n => n.TaiKhoanUs, null, new {@class = "text-danger" })
+            </div>
+            <div class="form-text">
+                <i><img src="~/Assets/Icon/lock.png"></i>
+                @*<input type="password" placeholder="Password" id="pass" onblur="checkPass()">*@
+                @Html.PasswordFor(n => n.MatKhauUs, new { @id = "pass", @placeholder = "Mat khau" })
+                @Html.ValidationMessageFor(n => n.MatKhauUs, null, new { @class = "text-danger" })
+            </div>
+            <button type="submit" class="a1"> Login </button>
+            <p>Do not have an account? <a class="a2" href="/LoginUser/Register/">Sign up.</a></p>
+            <p class="p1">or use another account</p>
+            <a href="TrangChuAcc.html"><img class="link" src="~/Assets/icon/facebook.png" alt=""></a>
+            <p class="p2">This site is protected by reCAPTCHA and <a class="a2" href="/Term/Index/">Terms of Use</a> apply.</p>
+        }
+    </div>
+</div>
+
+

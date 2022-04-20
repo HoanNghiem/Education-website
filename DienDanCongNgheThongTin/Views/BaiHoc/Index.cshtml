@@ -1,0 +1,100 @@
+﻿@model List<DienDanCongNgheThongTin.Models.framework.BaiHoc>
+    @using DienDanCongNgheThongTin.Models.framework;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layoutUserAcc.cshtml";
+    WebITEntities1 db = new WebITEntities1();
+    List<KhoaHoc> kh = db.KhoaHoc.ToList();
+}
+@section styles{
+    <link rel="stylesheet" type="text/css" href="~/Assets/user/css/BaiHoc.css"/>
+    }
+<!--Banner-->
+<div class="banner">
+    <ul>
+        <li>
+            <img src="~/Assets/Icon/earth.png">
+            <p class="number">3297</p>
+            <p>Foraign Follower</p>
+        </li>
+
+        <li>
+            <img src="~/Assets/Icon/school.png">
+            <p class="number">3700</p>
+            <p>Students Enrolled</p>
+        </li>
+        <li>
+            <img src="~/Assets/Icon/lightBulb.png">
+            <p class="number">5034</p>
+            <p>Classes Complete</p>
+        </li>
+        <li>
+            <img src="~/Assets/Icon/people.png">
+            <p class="number">1080</p>
+            <p>Certified Teacher</p>
+        </li>
+    </ul>
+</div>
+
+
+
+
+<!--Content-->
+@*@foreach(var items in kh)
+            {
+                @items.MaKhoaHoc
+                @items.TenKhoaHoc
+            }*@
+<div class="content">
+
+    <div class="content1">
+        <ul class="list1">
+            <h2>Basic programing</h2>
+
+            @foreach (var item in Model)
+            {
+                if (item.MaKhoaHoc.ToString() == "basic")
+                {
+                    <li class="li1">
+                        <a href="/BaiHoc/ChiTietBaiHoc?id=@item.MaBaiHoc">
+                            <img class="img1" src="@item.imgUrl"/>
+                            <h3>@item.TenBaiHoc</h3>
+                        </a>
+                        <ul class="detail1">
+                            <li>@item.TacGia</li>
+                            <li><img src="@item.iconUrl" />88</li>
+                        </ul>
+                    </li>
+                }
+            }
+            
+        </ul>
+    </div>
+
+
+    <!--content2-->
+    <div class="content2">
+        <ul class="list2">
+            <br>
+            <h2>Advanced programming</h2>
+            @foreach (var item in Model)
+            {
+                if (item.MaKhoaHoc.ToString() == "advanced")
+                {
+                    <li class="li2">
+                        <a href="/BaiHoc/ChiTietBaiHoc?id=@item.MaBaiHoc">
+                            <img class="img2" src="@item.imgUrl"/>
+                            <h3>@item.TenBaiHoc</h3>
+                        </a>
+                        <ul class="detail2">
+                            <li>@item.TacGia</li>
+                            <li><img src="@item.iconUrl"/>88</li>
+                        </ul>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+
+</div>
+

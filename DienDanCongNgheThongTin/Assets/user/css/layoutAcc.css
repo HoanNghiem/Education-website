@@ -1,0 +1,160 @@
+﻿body {
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f1f1f1;
+    margin: 0px auto;
+    width: 1200px;
+}
+
+/*header*/
+.wrapper #logo {
+    color: yellowgreen;
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.wrapper #DN {
+    float: right;
+    color: #fff;
+    position: relative;
+}
+
+.wrapper .acc {
+    height: 36px;
+    padding-right: 3px;
+}
+
+#DN:hover .menu-acc {
+    display: block;
+}
+
+.menu-acc {
+    display: none;
+    position: absolute;
+    left: -7px;
+    top: 100%;
+}
+
+#Logout {
+    color: grey;
+    background-color: #fff
+}
+
+.wrapper ul {
+    list-style: none;
+}
+
+.wrapper a {
+    text-decoration: none;
+}
+
+.inner-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+ul#main-menu {
+    display: flex;
+}
+
+    ul#main-menu a {
+        padding: 10px 20px;
+        font-weight: bold;
+        color: #fff;
+    }
+
+header {
+    position: fixed;
+    padding: 10px 0px;
+    top: 0;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.wrapper header {
+    background-color: black;
+    width: 1200px;
+}
+
+.wrapper #main-menu li.active a,
+.wrapper #main-menu li a:hover {
+    color: yellowgreen;
+}
+
+.wrapper ul li a {
+    background-color: black;
+}
+
+
+
+/*footer*/
+footer {
+    background: black;
+    width: 1200px;
+    color: #fff;
+    clear: left;
+    position: relative;
+    line-height: 1.9;
+    padding: 20px 0;
+}
+
+    footer ul li a:hover {
+        color: yellowgreen;
+    }
+
+.main-footer:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+footer div {
+    float: left;
+    padding-left: 88px;
+}
+
+    footer div h3 {
+        color: yellowgreen;
+        margin-bottom: 28px;
+    }
+
+footer .code-k {
+    width: 500px;
+}
+
+footer .link {
+    width: 100px;
+}
+
+footer .information {
+    width: 100px;
+}
+
+footer .help {
+    width: 100px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer .code-k h3 {
+    color: yellowgreen;
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}

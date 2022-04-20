@@ -1,0 +1,26 @@
+﻿@model List<DienDanCongNgheThongTin.Models.framework.Terms>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layoutUser.cshtml";
+}
+@section popupCss{
+    <link rel="stylesheet" type="text/css" href="~/Assets/user/css/Term.css"/>
+    }
+<div class="content">
+    <h1>Code-K Terms of Use</h1>
+    <h2>Legal Information & Notices</h2>
+    <hr class="line">
+    <h4>
+        Please note that your use of and access to our services
+        (defined below) are subject to the following terms; if
+        you do not agree to all of the following, you may not use
+        or access the services in any manner.
+    </h4>
+    @foreach (var item in Model)
+            {
+                <p class="p1">
+                    @item.NoiDung
+                </p>
+            }
+</div>
+

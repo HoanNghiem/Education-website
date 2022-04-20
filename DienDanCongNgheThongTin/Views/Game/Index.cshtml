@@ -1,0 +1,90 @@
+﻿@model List<DienDanCongNgheThongTin.Models.framework.Game>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layoutUserAcc.cshtml";
+}
+@section styles{
+    <link rel="stylesheet" type="text/css" href="~/Assets/user/css/Game.css"/>
+    }
+
+<!--Banner-->
+<div class="banner">
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 4</div>
+            <img src="~/Assets/Images/gaming.png" style="width:100%">
+            <div class="text">Gaming One</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 4</div>
+            <img src="~/Assets/Images/gaming3.jpg" style="width:100%">
+            <div class="text">Gaming Two</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 4</div>
+            <img src="~/Assets/Images/gaming4.png" style="width:100%">
+            <div class="text">Gaming Three</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 4</div>
+            <img src="~/Assets/Images/gaming1.png" style="width:100%">
+            <div class="text">Gaming Four</div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+
+</div>
+
+
+
+
+
+
+<!--content-->
+<div class="content">
+    <ul class="list">
+        <br>
+        <h1>Gaming Center</h1>
+        @foreach (var item in Model)
+            {
+                <li class="li0">
+                    <a href="/Game/ChiTietGame?id=@item.MaGame">
+                        <img class="img0" src="@item.imgUrl" />
+                        <h3>@item.TenGame</h3>
+                    </a>
+                </li>
+            }
+        @*<li class="li0">
+            <a href="">
+                <img class="img0" src="D:/NGHIEM_VAN_HOAN/image/game1.jpg" alt="">
+                <h3>Gold Miner</h3>
+            </a>
+            <ul class="detail">
+                <li>By Admin</li>
+                <li>29 May 2021</li>
+                <li><img src="D:/NGHIEM_VAN_HOAN/icon/comment.png" alt=""></i>88</li>
+            </ul>
+        </li>*@
+    </ul>
+
+</div>
+@section popupJs{
+    <script src="~/Assets/user/js/Game.js"></script>
+    }
+
+

@@ -1,0 +1,35 @@
+﻿@model DienDanCongNgheThongTin.Models.framework.FooterLink
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FooterLink</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenLink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Link)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Link)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaLink }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

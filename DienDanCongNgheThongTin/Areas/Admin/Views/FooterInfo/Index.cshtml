@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DienDanCongNgheThongTin.Models.framework.FooterInfo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
+}
+
+<h2>Footer Info</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenInfo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Link)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenInfo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Link)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaInfo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaInfo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaInfo })
+        </td>
+    </tr>
+}
+
+</table>

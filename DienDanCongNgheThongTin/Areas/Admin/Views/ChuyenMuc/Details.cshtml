@@ -1,0 +1,36 @@
+﻿@model DienDanCongNgheThongTin.Models.framework.ChuyenMuc
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ChuyenMuc</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaChuyenMuc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaChuyenMuc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenChuyenMuc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenChuyenMuc)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaChuyenMuc }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

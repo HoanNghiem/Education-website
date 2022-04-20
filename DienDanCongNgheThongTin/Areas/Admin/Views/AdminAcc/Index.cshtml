@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DienDanCongNgheThongTin.Models.framework.AdminAcc>
+
+@{
+    ViewBag.Title = "Admin - Accout Manager";
+    Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
+}
+
+<h2>Accout Manager</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TaiKhoan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quyen)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaiKhoan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quyen)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TaiKhoan }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TaiKhoan }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TaiKhoan })
+        </td>
+    </tr>
+}
+
+</table>
